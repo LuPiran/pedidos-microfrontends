@@ -1,0 +1,24 @@
+{
+  "name": "pedidos-microfrontends",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n cardapio,pedido,container -c green,cyan,magenta \"npm run dev -w cardapio\" \"npm run dev -w pedido\" \"npm run dev -w container\"",
+    "dev:cardapio": "npm run dev -w cardapio",
+    "dev:pedido": "npm run dev -w pedido",
+    "dev:container": "npm run dev -w container"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "cross-env": "^7.0.3",
+    "webpack": "5.97.1"
+  },
+  "overrides": {
+    "enhanced-resolve": "5.18.1"
+  },
+  "installConfig": {
+    "hoistingLimits": "workspaces"
+  }
+}
